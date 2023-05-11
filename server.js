@@ -9,6 +9,24 @@ app.get('/', middleware, (req, res) => {
     res.send('Hello')
 })
 
+app.get('/api/v1/dialogs', (req, res) => {
+    const dialogs = [
+        {
+            question: "salut",
+            answer: "coucou"
+        },
+        {
+            question: "ça va ?",
+            answer: "bien et toi ?"
+        },
+        {
+            question: "quel age as-tu ?",
+            answer: "22 ans"
+        }
+    ]
+    res.status(200).json({ message: dialogs })
+})
+
 app.post('/api/v1/dialogs', (req, res) => { 
     console.log(req.body.question)
     let matchFound=false;
