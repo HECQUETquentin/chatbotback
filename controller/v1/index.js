@@ -10,6 +10,10 @@ const dialogs = [
     {
         question: "quel age as-tu ?",
         answer: "22 ans"
+    },
+    {
+        question: "Quel temps fait-il ?",
+        answer: "Il pleut"
     }
 ]
 
