@@ -2,9 +2,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
+const cors = require('cors')
+const mongoose = require('mongoose')
 
 app.use(express.json())
-
+app.use(cors())
 // Swagger
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -40,6 +42,10 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+mongoose.connect('mongodb+srv://qhecquet22:Rathalos=91!@stjo.d4uqlnt.mongodb.net/')
+.then(() =>{console.log('Connected to database')})
+.catch((error) => {console.log('Connection failed:', error)})
 
 /*function middleware(req, res, next){
     console.log('coucou')
