@@ -30,10 +30,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use('/api/v1', require('./routes/v1'))
 
-/*app.get('/', middleware, (req, res) => {
-    res.send('Hello')
-})*/
-
 app.get('*', (req, res) => {
     //res.status(404).json({ message: 'Not found'}) bonne pratique
     res.sendFile(__dirname + "/view/404.html")
