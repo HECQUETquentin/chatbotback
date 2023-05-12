@@ -1,41 +1,28 @@
+const dialogs = [
+    {
+        question: "salut",
+        answer: "coucou"
+    },
+    {
+        question: "ça va ?",
+        answer: "bien et toi ?"
+    },
+    {
+        question: "quel age as-tu ?",
+        answer: "22 ans"
+    }
+]
+
 const dialogController = {
     home: (req, res) => {
         res.send('Hello World!')
     },
-    dialogs: (req, res) => {
-        const dialogs = [
-            {
-                question: "salut",
-                answer: "coucou"
-            },
-            {
-                question: "ça va ?",
-                answer: "bien et toi ?"
-            },
-            {
-                question: "quel age as-tu ?",
-                answer: "22 ans"
-            }
-        ]
+    dialogget: (req, res) => {
         res.status(200).json({ message: dialogs })
     },
-    dialogp: (req, res) => { 
+    dialogpost: (req, res) => { 
         console.log(req.body.question)
         let matchFound=false;
-        const dialogs=[
-            {
-                question : "salut",
-                answer : "coucou"
-            },
-            {
-                question : "ca va?",
-                answer : "oui et toi?"
-            },
-            {
-                question : "quel age as tu?",
-                answer : "22 ans"
-            }
-        ]
         dialogs.forEach(dialog =>{
             if(dialog.question === req.body.question){
                 matchFound = true;
@@ -48,5 +35,5 @@ const dialogController = {
         }
     }
 }
-
+ 
 module.exports = dialogController
