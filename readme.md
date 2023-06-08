@@ -4,11 +4,4 @@
 
 ---
 
-- `/dialog/questions`
-
-    > Méthode GET : Retourne la liste des questions ainsi que son identifiant.
-{ id : number, question: string }
-
-- `/dialogs`
-
-chatbotstjoback.onrender.com/api-docs/
+- documentation backend : chatbotstjoback.onrender.com/api-docs/
