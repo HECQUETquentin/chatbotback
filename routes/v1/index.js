@@ -35,4 +35,26 @@ router.get('/dialogs', dialogController.dialogget)
  */
 router.post('/dialogs', dialogController.dialogpost)
 
+/**
+ * @swagger
+ * /api/v1/dialogs:
+ *  delete:
+ *    description: méthode delete question/answer
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.delete('/dialogs', dialogController.dialogdelete)
+
+/**
+ * @swagger
+ * /api/v1/dialogs:
+ *  put:
+ *    description: méthode put question/answer
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.put('/dialogs', dialogController.dialogput)
+
 module.exports = router
