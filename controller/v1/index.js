@@ -5,41 +5,6 @@ const Chat = require("../../models/Chat")
 
 app.use(express.json())
 
-/*app.post('/createchat', (req, res) => {
-    const chat = Chat.build({ question: req.body.question, answer: req.body.answer});
-    (async function save(){
-        await chat.save();
-        console.log(chat);
-        console.log('Chat was saved to the database!');
-    })()
-    res.status(200).json({
-        message: "created"
-    })
-})
-
-app.patch('/updatechat', async (req, res) =>{
-    const updatechat = Chat.update({ question: req.body.question, answer: req.body.answer}, {
-        where: {
-            id: req.body.id
-        }
-    });
-    res.status(200).json({
-        message: "updated"
-    })
-})
-
-app.delete('/deletechat', async (req, res) =>{
-    const deletechat = await Chat.destroy({
-        where: {
-            id: req.body.id
-        }
-    });
-    console.log('Chat was deleted to the database!');
-    res.status(200).json({
-        message: "deleted"
-    })
-})*/
-
 const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: '../../db/database.sqlite'
@@ -57,7 +22,7 @@ const sequelize = new Sequelize({
 
 const dialogController = {
     home: (req, res) => {
-        res.send('Hello World!')
+        res.send('Vous êtes bien connecté à l\'API!')
     },
     dialogget: async (req, res) => {
         const allchats = await Chat.findAll();
@@ -100,46 +65,4 @@ const dialogController = {
     }
 }
 
-/*const dialogs = [
-   {
-        question: "salut",
-        answer: "coucou"
-    },
-    {
-        question: "ça va ?",
-        answer: "bien et toi ?"
-    },
-    {
-        question: "quel age as-tu ?",
-        answer: "22 ans"
-    },
-    {
-        question: "Quel temps fait-il ?",
-        answer: "Il pleut"
-    }
-]
-
-const dialogController = {
-    home: (req, res) => {
-        res.send('Hello World!')
-    },
-    dialogget: (req, res) => {
-        res.status(200).json({ message: dialogs })
-    },
-    dialogpost: (req, res) => { 
-        console.log(req.body.question)
-        let matchFound=false;
-        dialogs.forEach(dialog =>{
-            if(dialog.question === req.body.question){
-                matchFound = true;
-                res.status(200).json({Response : dialog.answer})
-                return
-            }
-        })
-        if(!matchFound){
-            res.status(200).json({message: "pas de réponse a vous apporter"})
-        }
-    }
-}
-*/ 
 module.exports = dialogController

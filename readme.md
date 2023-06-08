@@ -10,3 +10,5 @@
 { id : number, question: string }
 
 - `/dialogs`
+
+chatbotstjoback.onrender.com/api-docs/
